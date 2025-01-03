@@ -10,33 +10,54 @@
             {% if user['images']|length != 0 %}
                 <img src="{{ user['images'][0]['url']}}">
             {% endif %}
-            <h1> {{user['display_name']}} </h1>
+            <a href="{{ user['external_urls']['spotify'] }}"> {{user['display_name']}}</a>
 
         </div>
         <h1> You have {{user['followers']['total']}} followers</h1>
-        <a href="{{ user['external_urls']['spotify'] }}"> Your Spotify Link</a>
     </div>
 
     <div class="current-track">
         {% if current_track==None or not current_track['is_playing'] %}
-            <h1> You are not listening to anything at the moment.</h1>
+            <h2> You are not listening to anything at the moment.</h2>
         {% else %}
-            <h1> You are listening to</h1>
-            <img src="{{ current_track['item']['album']['images'][0]['url']}}">
-            <div class="track-info">
-                <h1>{{current_track['item']['name']}}</h1>
-                <h1> by {{current_track_artists}} </h1>
+            <h2> You are listening to</h2>
+            <div class="track">
+                <img src="{{current_track['item']['album']['images'][0]['url']}}">
+                <div class="track_info">
+                    <a href="{{current_track['item']['external_urls']['spotify']}}">{{current_track['item']['name']}}</a>
+                    <div class="track_artists">
+                        {% for artist in current_track['item']['artists'] %}
+                            {% if not loop.last %}
+                                <h1>{{artist['name']}},</h1>
+                            {% else %}
+                                <h1>{{artist['name']}}</h1>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h1>Popularity: {{current_track['item']['popularity']}}%</h1>
+                </div>
             </div>
         {% endif %}
     </div>
     
     <div class="recently-played">
         <h1>Recently Played</h1>
-        {% for track in user_tracks %}
+        {% for track in recently_played %}
             <div class="track">
-                <img src="{{track[3]}}">
-                <a href="{{track[1]}}">{{track[0]}}</a>
-                <h1> &nbsp; {{track[2]}}</h1>
+                <img src="{{track['track']['album']['images'][0]['url']}}">
+                <div class="track_info">
+                    <a href="{{track['track']['external_urls']['spotify']}}">{{track['track']['name']}}</a>
+                    <div class="track_artists">
+                        {% for artist in track['track']['artists'] %}
+                            {% if not loop.last %}
+                                <h1>{{artist['name']}},</h1>
+                            {% else %}
+                                <h1>{{artist['name']}}</h1>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h1>Popularity: {{track['track']['popularity']}}%</h1>
+                </div>
             </div>
         {% endfor %}
     </div>
@@ -45,8 +66,13 @@
         <h1>Your Playlists</h1>
         {% for playlist in user_playlists %}
             <div class="playlist">
-                <img src="{{playlist[2]}}">
-                <a href="{{playlist[1]}}">{{playlist[0]}}</a>
+                <img src="{{playlist['images'][0]['url']}}">
+                <div class="playlist_info">
+                    <a href="{{playlist['external_urls']['spotify']}}">{{playlist['name']}}</a>
+                    <h1>{{playlist['owner']['display_name']}}</h1>
+                    <h1>{{playlist['description']}}</h1>
+
+                </div>
             </div>
         {% endfor %}
     </div>

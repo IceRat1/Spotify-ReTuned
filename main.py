@@ -12,20 +12,11 @@ def index():
 
     user = sp.current_user()
     current_track = sp.current_user_playing_track()
-    if current_track!=None:
-        current_track_artists = ', '.join(artist['name'] for artist in current_track['item']['artists'])
-    else: 
-        current_track_artists = None
 
     recently_played = sp.current_user_recently_played(5)
-    user_tracks = [(track['track']['name'], 
-                    track['track']['external_urls']['spotify'],
-                    ', '.join(artist['name'] for artist in track['track']['artists']),
-                    track['track']['album']['images'][0]['url']) for track in recently_played['items']]
     playlists = sp.current_user_playlists()
-    user_playlists = [(pl['name'], pl['external_urls']['spotify'], pl['images'][0]['url']) for pl in playlists['items']]
 
-    return render_template('main/home.html', user=user, current_track=current_track, current_track_artists=current_track_artists, user_tracks=user_tracks, user_playlists=user_playlists)
+    return render_template('main/home.html', user=user, current_track=current_track, recently_played=recently_played['items'], user_playlists=playlists['items'])
 
 @bp.route('/statistics')
 @login_required
