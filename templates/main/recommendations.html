@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Recommendations{% endblock %}
+
+{% block content %} 
+
+    <div class="recommendations">
+        <div class="spotify">
+            <h1> Recommended Tracks </h1>
+            {% for track in recommended[::2] %}
+                <div class="track">
+                    <img src="{{track['album']['images'][0]['url']}}">
+                    <div class="track_info">
+                        <a href="{{track['external_urls']['spotify']}}">{{track['name']}}</a>
+                        <div class="track_artists">
+                            {% for artist in track['artists'] %}
+                                {% if not loop.last %}
+                                    <h1>{{artist['name']}},</h1>
+                                {% else %}
+                                    <h1>{{artist['name']}}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <h1>Popularity: {{track['popularity']}}%</h1>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="spotify">
+            <h1> &nbsp;</h1>
+            {% for track in recommended[1::2] %}
+                <div class="track">
+                    <img src="{{track['album']['images'][0]['url']}}">
+                    <div class="track_info">
+                        <a href="{{track['external_urls']['spotify']}}">{{track['name']}}</a>
+                        <div class="track_artists">
+                            {% for artist in track['artists'] %}
+                                {% if not loop.last %}
+                                    <h1>{{artist['name']}},</h1>
+                                {% else %}
+                                    <h1>{{artist['name']}}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <h1>Popularity: {{track['popularity']}}%</h1>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

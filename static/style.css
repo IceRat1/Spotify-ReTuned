@@ -1,0 +1,321 @@
+body{
+    background-color: rgb(27, 27, 27);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6em;
+    margin:0;
+    border:0;
+    padding:0;
+}
+
+a{
+    color: white;
+    font-weight: bold;
+}
+
+a:hover{
+    color: #1ED760;
+}
+
+#main-header{
+    display:flex;
+    background-color:rgb(12, 12, 12);
+    padding: 20px 0;
+}
+
+#main-header h1{
+    margin:0;
+    font-size: 60px; 
+    padding-left: 30px;
+    padding-top: 20px;
+    align-self:baseline;
+}
+
+#main-header h2{
+    margin:0;
+    color: #1ED760;
+    font-size: 30px; 
+    padding-left: 15px;
+    align-self:baseline;
+}
+
+#main-header img{
+    width:auto;
+    height: 50px;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+#sub-header{
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    padding-bottom: 10px;
+}
+
+#sub-header a{
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+.content .profile{
+    padding: 0 50px;
+}
+
+.content .profile a{
+    font-size: 1.5em;
+}
+
+.content .profile .profile-user{
+    display: flex;
+    align-items: center;
+}
+
+.content .profile img{
+    padding: 0 15px;
+    width: auto;
+    height: 60px;
+}
+
+.content .current-track{
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    align-items:center;
+    padding: 20px;
+    margin: 40px;
+    width:fit-content;
+    border:rgb(0, 0, 0) 1px solid;
+    border-radius:10px;
+}
+
+.content .current-track h1{
+    color: #1ED760;
+    padding-right: 10px;
+}
+
+.content .current-track .track-info h1{
+    font-weight: 600;
+}
+
+.content .current-track img{
+    padding: 0 20px;
+    width: auto;
+    height: 80px;
+}
+
+.content .recently-played {
+    padding-left: 40px;
+}
+
+.content .recently-played .track{
+    background-color: #121212;
+    display:flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border:black, 1px, solid;
+    border-radius: 10px;
+}
+
+.content .recently-played .track a{
+    padding-left:10px;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.content .recently-played .track h1{
+    font-weight: normal;
+}
+
+.content .recently-played img{
+    padding: 10px;
+    width: auto;
+    height: 80px;
+}
+
+
+.content .playlists {
+    padding-left: 40px;
+}
+
+.content .playlists .playlist{
+    background-color: #121212;
+    display:flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border:black, 1px, solid;
+    border-radius: 10px;
+}
+
+.content .playlists .playlist a{
+    padding-left:10px;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.content .playlists .playlist h1{
+    font-weight: normal;
+}
+
+.content .playlists img{
+    padding: 10px;
+    width: auto;
+    height: 80px;
+}
+
+
+.content .artists {
+    padding: 0 20px;
+    display:flex;
+}
+
+.content .top_artists {
+    padding: 0 20px;
+    width:50%;
+} 
+
+.content .top_artists .artist{
+    background-color: #121212;
+    display:flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border:black, 1px, solid;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.content .top_artists .artist .artist_info a{
+    padding-left:10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: block;
+}
+
+.content .top_artists .artist .artist_info h1{
+    padding-left: 10px;
+    font-weight: normal;
+    font-size: 18px;
+    margin: 5px 0;
+    color:antiquewhite;
+    display:block;
+}
+
+.content .top_artists .artist .genres {
+    padding-left: 20px;
+    text-transform: capitalize;
+}
+
+.content .top_artists .artist .genres h1{
+    margin-bottom: 0;
+    padding-left: 15px;
+    color:#1ED760;
+    font-weight: bold;
+
+}
+
+.content .top_artists .artist .genres ul{
+    margin-top:5px;
+}
+
+
+.content .top_artists img{
+    padding: 10px;
+    width: auto;
+    height: 80px;
+}
+
+
+.content .tracks {
+    display:flex;
+    padding: 0 20px;
+}
+
+.content .top_tracks {
+    padding: 0 20px;
+    width: 50%;
+} 
+
+.content .top_tracks .track{
+    background-color: #121212;
+    display:flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border:black, 1px, solid;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.content .top_tracks .track .track_info a{
+    padding-left:10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: block;
+}
+
+.content .top_tracks .track .track_info h1{
+    font-weight: normal;
+    font-size: 18px;
+    margin: 5px 0;
+    color:antiquewhite;
+    display: block;
+    padding-left:10px;
+}
+
+.content .top_tracks .track .track_info .track_artists h1{
+    margin-bottom: 0;
+    color:antiquewhite;
+    display:inline-block;
+}
+
+.content .top_tracks img{
+    padding: 10px;
+    width: auto;
+    height: 80px;
+}
+
+
+.content .recommendations {
+    display:flex;
+    padding: 0 20px;
+}
+
+.content .spotify {
+    padding: 0 20px;
+    width: 50%;
+} 
+
+.content .spotify .track{
+    background-color: #121212;
+    display:flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border:black, 1px, solid;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.content .spotify .track .track_info a{
+    padding-left:10px;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: block;
+}
+
+.content .spotify .track .track_info h1{
+    font-weight: normal;
+    font-size: 18px;
+    margin: 5px 0;
+    color:antiquewhite;
+    display: block;
+    padding-left:10px;
+}
+
+.content .spotify .track .track_info .track_artists h1{
+    margin-bottom: 0;
+    color:antiquewhite;
+    display:inline-block;
+}
+
+.content .spotify img{
+    padding: 10px;
+    width: auto;
+    height: 80px;
+}

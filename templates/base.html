@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,650,700,800,900">
+<body>
+    <div id="main-header">
+        <h1>ReTuned</h1>
+        <h2>for</h2>
+        <img src="/static/Spotify_Full_Logo_RGB_Green.png">
+    </div id="main-header">
+    <div id="sub-header">
+        <a class="action" href="{{ url_for('main.index') }}">Home</a>
+        <a class="action" href="{{ url_for('main.statistics') }}">Your Statistics</a>
+        <a class="action" href="{{ url_for('main.recommendations') }}">Recommendations</a>
+        <a class="action" href="{{ url_for('auth.logout') }}">Log Out</a>
+    </div>
+    <section class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </section>
+</body>

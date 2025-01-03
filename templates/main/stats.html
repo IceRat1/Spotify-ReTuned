@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block content %}
+    <div class="artists">
+        <div class="top_artists">
+            <h1>Your Recent Top 5 Artists</h1>
+            {% for artist in recent_artists %}
+                <div class="artist">
+                    <img src="{{artist['images'][0]['url']}}">
+                    <div class="artist_info">
+                        <a href="{{artist['external_urls']['spotify']}}">{{artist['name']}}</a>
+                        <h1>Followers: {{artist['followers']['total']}}</h1>
+                        <h1>Popularity: {{artist['popularity']}}%</h1>
+                    </div>
+                    <div class="genres">
+                        <h1>Genres</h1>
+                        <ul>
+                        {% for genre in artist['genres'] %}
+                            <li>{{genre}}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="top_artists">
+            <h1>Your All-time Top 5 Artists</h1>
+            {% for artist in alltime_artists %}
+                <div class="artist">
+                    <img src="{{artist['images'][0]['url']}}">
+                    <div class="artist_info">
+                        <a href="{{artist['external_urls']['spotify']}}">{{artist['name']}}</a>
+                        <h1>Followers: {{artist['followers']['total']}}</h1>
+                        <h1>Popularity: {{artist['popularity']}}%</h1>
+                    </div>
+                    <div class="genres">
+                        <h1>Genres</h1>
+                        <ul>
+                        {% for genre in artist['genres'] %}
+                            <li>{{genre}}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="tracks">
+        <div class="top_tracks">
+            <h1>Your Recent Top 5 Tracks</h1>
+            {% for track in recent_tracks %}
+                <div class="track">
+                    <img src="{{track['album']['images'][0]['url']}}">
+                    <div class="track_info">
+                        <a href="{{track['external_urls']['spotify']}}">{{track['name']}}</a>
+                        <div class="track_artists">
+                            {% for artist in track['artists'] %}
+                                {% if not loop.last %}
+                                    <h1>{{artist['name']}},</h1>
+                                {% else %}
+                                    <h1>{{artist['name']}}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <h1>Popularity: {{track['popularity']}}%</h1>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="top_tracks">
+            <h1>Your All-time Top 5 Tracks</h1>
+            {% for track in alltime_tracks %}
+                <div class="track">
+                    <img src="{{track['album']['images'][0]['url']}}">
+                    <div class="track_info">
+                        <a href="{{track['external_urls']['spotify']}}">{{track['name']}}</a>
+                        <div class="track_artists">
+                            {% for artist in track['artists'] %}
+                                {% if not loop.last %}
+                                    <h1>{{artist['name']}},</h1>
+                                {% else %}
+                                    <h1>{{artist['name']}}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <h1>Popularity: {{track['popularity']}}%</h1>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
