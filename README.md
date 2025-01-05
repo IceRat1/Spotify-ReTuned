@@ -2,7 +2,7 @@
  
 ## Description
 
-As a lover of music, I of course use Spotify on a daily basis. However, I find that the Spotify interface isn't too great, and it can be pretty difficult to find information like my top songs or artist. So, I have created a 'ReTuned' version of Spotify, using the Spotify Web API, which can display all the information I want in a very easy to read interface.
+As a lover of music, of course I use Spotify on a daily basis. However, I find that the Spotify interface isn't too great, and it can be pretty difficult to find information like my top songs or artist. So, I have created a 'ReTuned' version of Spotify, using the Spotify Web API, which can display all the information I want in a very easy to read interface.
 
 ## Features
 
